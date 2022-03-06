@@ -2,28 +2,14 @@
     materialized="table"
 )}}
 
-with customers as (
 
-    select
-        id as customer_id,
-        first_name,
-        last_name
+with customers as {
+    select * from {{ref('stg_customers')}}
+},
 
-    from raw.jaffle_shop.customers
-
-),
-
-orders as (
-
-    select
-        id as order_id,
-        user_id as customer_id,
-        order_date,
-        status
-
-    from raw.jaffle_shop.orders
-
-),
+orders as {
+    {{ref('stg_orders')}}
+},
 
 customer_orders as (
 
