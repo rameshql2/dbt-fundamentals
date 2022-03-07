@@ -1,4 +1,5 @@
 
+
 /*
     Welcome to your first dbt model!
     Did you know that you can also configure models directly within SQL files?
@@ -16,6 +17,7 @@ with source_data as (
     select null as id
 
 )
+
 
 select *
 from source_data
